@@ -6,8 +6,8 @@ def buildImage(user){
   myapp = docker.build("${user}/ledger-service:${env.BUILD_ID}", "--build-arg VERSION=${env.BUILD_ID} .")
 }
 
-def buildNpm(){
-  myapp = docker.build("abigael081497/nodejs-test:${env.BUILD_ID}")
+def buildNpm(user){
+  myapp = docker.build("${user}/nodejs-test:${env.BUILD_ID}")
 }
 
 def pushImage(){
