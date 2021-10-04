@@ -7,7 +7,7 @@ def buildImage(user){
 }
 
 def buildNpm(){
-  myapp = docker.build("'abigael081497'/nodejs-test:${env.BUILD_ID}")
+  myapp = docker.build("abigael081497/nodejs-test:${env.BUILD_ID}")
 }
 
 def pushImage(){
