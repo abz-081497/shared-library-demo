@@ -6,6 +6,10 @@ def buildImage(user){
   myapp = docker.build("${user}/ledger-service:${env.BUILD_ID}", "--build-arg VERSION=${env.BUILD_ID} .")
 }
 
+def buildNpm(){
+  myapp = docker.build("/nodejs-test:${env.BUILD_ID}")
+}
+
 def pushImage(){
   docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
     myapp.push("latest")
